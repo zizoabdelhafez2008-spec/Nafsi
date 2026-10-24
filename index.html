@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#12213A">
+<title>أحسن نسخة</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--card:#FFFDF3;--ink:#2A2410;--mute:#7A7254;--line:#F0E4B0;--acc:#F2B705;--accs:#FFF3C4;--accd:#9A6F00;box-sizing:border-box;padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 60px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Tajawal',system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif;font-size:16px;line-height:1.6;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:2px solid var(--acc);display:flex;align-items:center;gap:12px;padding:8px 14px}
+header h1{font-family:'Reem Kufi',serif;font-size:24px;font-weight:700;margin:0}
+.burger{background:var(--accs);width:44px;height:44px;border-radius:12px;padding:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.burger i{display:block;width:22px;height:3px;background:var(--ink);border-radius:2px}
+main{max-width:520px;margin:0 auto;padding:16px 16px 40px}
+h2{font-family:'Reem Kufi',serif;font-size:19px;font-weight:700;margin:22px 0 10px}
+.sub{color:var(--mute);margin:0 0 14px;font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:10px}
+.row{display:flex;align-items:center;gap:10px}
+.sp{flex:1}
+input,select{font:inherit;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;width:100%}
+select{width:auto}
+input:focus,select:focus,button:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
+button{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:10px 16px;background:var(--acc);color:var(--ink);font-weight:700}
+button.g{background:var(--accs)}
+button.x{background:transparent;color:var(--mute);padding:6px 10px}
+.add{display:flex;gap:8px;margin-bottom:12px}
+.add button{white-space:nowrap}
+.seg{display:flex;background:var(--accs);border-radius:14px;padding:4px;margin-bottom:14px}
+.seg button{flex:1;background:transparent;padding:9px 6px;font-size:14px}
+.seg button.on{background:var(--acc)}
+.ring{position:relative;width:150px;height:150px;margin:6px auto 10px}
+.ring svg{transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Reem Kufi',serif;font-size:34px;line-height:1.1}
+.ring b small{font-family:'Tajawal',sans-serif;font-size:12px;color:var(--mute);font-weight:400}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stats .card{text-align:center;margin:0;padding:10px 4px}
+.stats b{display:block;font-family:'Reem Kufi',serif;font-size:24px}
+.stats span{font-size:12px;color:var(--mute)}
+.bars{display:flex;align-items:flex-end;gap:8px;height:90px}
+.bars div{flex:1;text-align:center;font-size:11px;color:var(--mute)}
+.bars i{display:block;background:var(--acc);border-radius:6px 6px 2px 2px;min-height:3px;margin-bottom:4px}
+.bar{height:8px;background:var(--accs);border-radius:99px;overflow:hidden;margin:8px 0}
+.bar i{display:block;height:100%;background:var(--acc);border-radius:99px}
+.chk{width:32px;height:32px;border-radius:50%;border:2px solid var(--acc);background:#fff;padding:0;color:var(--ink);font-size:17px;flex:none}
+.chk.on{background:var(--acc)}
+.step{display:flex;align-items:center;gap:10px;padding:6px 0}
+.step.d span{text-decoration:line-through;color:var(--mute)}
+.tag{background:var(--accs);color:var(--accd);border-radius:99px;font-size:12px;padding:1px 10px;font-weight:700}
+.fire{color:var(--accd);font-weight:700;font-size:13px}
+.empty{text-align:center;color:var(--mute);padding:24px 8px}
+.timer{font-family:'Reem Kufi',serif;font-size:66px;text-align:center;letter-spacing:2px;margin:6px 0;font-variant-numeric:tabular-nums}
+.pre{display:flex;gap:8px;justify-content:center;margin:8px 0 14px}
+.pre button.on{background:var(--acc)}
+#ov{position:fixed;inset:0;background:rgba(42,36,16,.4);z-index:40;display:none}
+#dr{position:fixed;top:0;bottom:0;right:0;width:78%;max-width:320px;background:var(--bg);z-index:50;transform:translateX(105%);transition:transform .22s;padding:calc(env(safe-area-inset-top,0px) + 18px) 14px 20px;border-left:3px solid var(--acc)}
+#dr.open{transform:none}
+#dr h3{font-family:'Reem Kufi',serif;font-size:22px;margin:4px 8px 14px}
+#dr button{display:flex;align-items:center;gap:12px;width:100%;text-align:right;background:transparent;font-size:18px;padding:13px 12px;margin-bottom:4px}
+#dr button.on{background:var(--acc)}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
+@keyframes nudge{0%{transform:translateX(0)}30%{transform:translateX(-10px)}60%{transform:translateX(5px)}100%{transform:translateX(0)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.pop .chk{animation:pop .45s ease}
+.pop b,.pop span{display:inline-block;animation:nudge .45s ease}
+#toast{position:fixed;left:50%;top:42%;width:78%;max-width:320px;background:#fff;border:3px solid var(--acc);border-radius:22px;padding:18px 16px;text-align:center;z-index:60;box-shadow:0 12px 40px rgba(154,111,0,.3);opacity:0;pointer-events:none;transform:translate(-50%,-50%) scale(.7);transition:opacity .25s,transform .3s cubic-bezier(.3,1.5,.5,1)}
+#toast.show{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+#toast .em{font-size:54px;line-height:1.2;animation:bob 1s ease-in-out infinite}
+#toast b{font-family:'Reem Kufi',serif;font-size:22px;display:block}
+#toast p{margin:4px 0 0;color:var(--mute)}
+.en{font-family:'Poppins','Tajawal',sans-serif;direction:ltr;display:block;text-align:right;font-size:17px;font-weight:600}
+.lecs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.lec{background:#fff;border:1.5px solid var(--acc);padding:10px 2px;font-size:14px;color:var(--ink)}
+.lec.l1{background:linear-gradient(to left,var(--acc) 50%,#fff 50%)}
+.lec.l2{background:var(--acc)}
+.lec.pop{animation:pop .4s ease}
+@media (prefers-reduced-motion:reduce){#dr,#toast{transition:none}.pop .chk,.pop b,.pop span,.lec.pop,#toast .em{animation:none}}
+:root{--bg:#F3F5F9;--card:#fff;--ink:#12213A;--mute:#6B778C;--line:#E4E8F0;--acc:#14917E;--accs:#E3F3F0;--accd:#0B6B5C;--gold:#C9962B}
+body,.ring b small{font-family:'IBM Plex Sans Arabic','Tajawal',system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif}
+h2,header h1,.ring b,.stats b,.timer,#dr h3,#toast b{font-family:'IBM Plex Sans Arabic','Tajawal',system-ui,sans-serif}
+body::before{background:#12213A}
+header{background:#12213A;border-bottom:0;padding:10px 16px}
+header h1{color:#fff;font-size:20px;font-weight:600}
+.burger{background:rgba(255,255,255,.12)}.burger i{background:#fff}
+h2{font-size:17px;font-weight:700;margin:24px 0 10px}
+.card{border-radius:18px;box-shadow:0 1px 2px rgba(18,33,58,.05),0 8px 22px rgba(18,33,58,.05)}
+button{background:var(--acc);color:#fff;font-weight:600}
+button.g{background:var(--accs);color:var(--accd)}
+button.x{background:transparent;color:var(--mute)}
+.seg{background:#E6EAF2}.seg button{background:transparent;color:var(--ink)}.seg button.on{background:#fff;color:var(--accd);box-shadow:0 1px 4px rgba(18,33,58,.14)}
+.pre button.on{background:var(--acc);color:#fff}
+.chk{border-color:var(--acc);background:#fff;color:#fff}.chk.on{background:var(--acc)}
+.bar{background:#E6ECF0}.bar i{background:linear-gradient(90deg,var(--acc),#3FC1AB)}
+.bars i{background:linear-gradient(var(--acc),#6FD3C2)}
+.stats b{color:var(--accd);font-weight:700}
+.fire{color:var(--gold)}
+.lec{border:1.5px solid #C9DFDB;background:#fff;color:var(--ink)}.lec.l1{background:linear-gradient(to left,#9ADACF 50%,#fff 50%)}.lec.l2{background:var(--acc);color:#fff;border-color:var(--acc)}
+#dr{background:#12213A;border-left:0}#dr h3{color:#fff}#dr button{color:#CFD8E8}#dr button.on{background:var(--acc);color:#fff}
+#ov{background:rgba(18,33,58,.55)}
+#toast{border:0;border-top:5px solid var(--acc);box-shadow:0 18px 50px rgba(18,33,58,.3)}
+.hero{background:linear-gradient(135deg,#12213A,#1F4068);color:#fff;border-radius:20px;padding:18px;margin-bottom:12px}.hero small{display:block;opacity:.7;font-size:13px}.hero b{display:block;font-size:20px;font-weight:600;line-height:1.5}
+.dots{display:flex;justify-content:space-between;gap:4px}
+.dot{flex:1;background:transparent;color:var(--ink);padding:4px 0;font-size:13px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.dot i{width:38px;height:38px;border-radius:50%;border:2px solid #C9DFDB;display:flex;align-items:center;justify-content:center;font-style:normal;color:#fff;font-size:18px}
+.dot.on i{background:var(--acc);border-color:var(--acc)}
+.dot.pop i{animation:pop .45s ease}
+.quote{border-radius:18px;padding:16px 18px;background:var(--accs);color:var(--accd);font-weight:500;font-size:17px;line-height:1.8;margin-top:14px;border-right:4px solid var(--acc)}
+.quote span{font-size:30px;line-height:0;vertical-align:-8px;margin-left:4px}
+.st{margin:10px 0 0;padding:0 22px 0 0;line-height:1.8}
+.st li{margin:3px 0}
+.mini{padding:4px 12px;font-size:13px;margin-top:6px}
+.em2{font-size:30px;line-height:1}
+button:disabled{opacity:.6;cursor:default}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center}
+.cal span{padding:8px 0;border-radius:10px;font-size:14px}
+.cal .h{color:var(--mute);font-size:12px;padding:2px 0}
+.cal .on{background:var(--acc);color:#fff;font-weight:700}
+.cal .td{outline:2px solid var(--ink);outline-offset:1px}
+.big{font-size:56px;font-weight:700;line-height:1.2}
+.cst{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);right:16px;left:16px;color:#9FB0CC;font-size:14px;line-height:1.7}
+.cst small{display:block;font-size:12px;opacity:.85}
+</style>
+</head>
+<body>
+<header><button class="burger" onclick="menu(true)" aria-label="القائمة"><i></i><i></i><i></i></button><h1 id="ttl"></h1></header>
+<div id="ov" onclick="menu(false)"></div>
+<div id="toast" onclick="this.className=''"></div>
+<aside id="dr"></aside>
+<main id="app"></main>
+<script>
+var S={goals:[],habits:[],sessions:[],prayers:{}},tab='home',gt='s',tm={left:3600,total:3600,run:false,id:null,subj:'',end:0};
+try{var r=localStorage.getItem('nafsi');if(r){var o=JSON.parse(r);for(var q in o)S[q]=o[q]}}catch(e){}
+var PR=['الفجر','الظهر','العصر','المغرب','العشاء'],fx='';
+function msg(t,m){var L={sub:[['🎓','خلّصت المادة!','كل محاضرات '+m+' اتذاكرت. شغل جامد يا دكتور المستقبل.'],['🌟','إنجاز رائع','قفلت مادة '+m+' بالكامل. كمّل على باقي المواد.']],prayer:[['🕌','ما شاء الله!','كمّلت صلواتك الخمسة النهارده. تقبّل الله منك.'],['🤲','بارك الله فيك','خمس صلوات في يومك. ثبّتك الله واستمر.']],habit:[['🔥','يوم مثالي!','خلّصت كل عاداتك النهارده. كده بتبني نسخة أحسن منك.'],['💪','برافو عليك','الالتزام هو السر. كمّل بنفس القوة.']],goal:[['🎯','حققت هدفك!','خلّصت كل خطوات الهدف. فخور بيك، حدد هدف جديد.'],['🏆','إنجاز كبير','هدف كمان اتحقق. استمر وإنت هتوصل لأبعد من كده.']],study:[['📚','جلسة شاطرة!','ذاكرت '+m+' دقيقة بتركيز. كمّل بنفس الحماس.'],['⭐','ممتاز','كل دقيقة تركيز بتفرق. خد راحة تستاهلها.']]}[t],c=L[Math.floor(Math.random()*L.length)],e=document.getElementById('toast');e.innerHTML='<div class="em">'+c[0]+'</div><b>'+c[1]+'</b><p>'+c[2]+'</p>';e.className='show';clearTimeout(msg.t);msg.t=setTimeout(function(){e.className=''},4200)}
+var TABS=[['home','🏠','الرئيسية'],['prayer','🕌','الصلاة'],['goals','🎯','الأهداف'],['habits','✅','العادات'],['study','⏱️','المذاكرة']];
+function save(){try{localStorage.setItem('nafsi',JSON.stringify(S))}catch(e){}cloudSave()}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function key(d){d=new Date(d);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function ago(n){var d=new Date();d.setDate(d.getDate()-n);return key(d)}
+function today(){return key(new Date())}
+function streak(h){var n=0,i=h.days.indexOf(today())>=0?0:1;while(h.days.indexOf(ago(i))>=0){n++;i++}return n}
+function pDone(k){return (S.prayers[k]||[]).length}
+function pStreak(){var n=0,i=pDone(today())===5?0:1;while(pDone(ago(i))===5){n++;i++}return n}
+function gp(g){return g.steps.length?Math.round(g.steps.filter(function(s){return s.d}).length/g.steps.length*100):0}
+function mins(day){return S.sessions.filter(function(s){return s.date===day}).reduce(function(a,s){return a+s.min},0)}
+function menu(o){document.getElementById('dr').className=o?'open':'';document.getElementById('ov').style.display=o?'block':'none'}
+function go(t){tab=t;menu(false);draw();window.scrollTo(0,0)}
+function setG(t){gt=t;draw()}
+function val(id){var e=document.getElementById(id);return e?e.value.trim():''}
+function addGoal(){var t=val('gi');if(!t)return;var p=gt==='l'?'سنة':val('gper')||'أسبوع';S.goals.push({id:Date.now(),t:t,type:gt,per:p,steps:[]});save();draw()}
+function delGoal(id){S.goals=S.goals.filter(function(g){return g.id!==id});save();draw()}
+function addStep(id){var t=val('s'+id);if(!t)return;S.goals.forEach(function(g){if(g.id===id)g.steps.push({t:t,d:false})});save();draw()}
+function togStep(id,i){S.goals.forEach(function(g){if(g.id===id){var s=g.steps[i];s.d=!s.d;if(s.d)mark();fx='fx-s'+id+'-'+i;if(s.d&&gp(g)===100)msg('goal')}});save();draw()}
+function addHabit(){var t=val('hi');if(!t)return;S.habits.push({id:Date.now(),t:t,days:[]});save();draw()}
+function delHabit(id){S.habits=S.habits.filter(function(h){return h.id!==id});save();draw()}
+function togHabit(id){var k=today(),add=false;S.habits.forEach(function(h){if(h.id===id){var i=h.days.indexOf(k);if(i>=0)h.days.splice(i,1);else{h.days.push(k);add=true}}});fx='fx-h'+id;if(add&&S.habits.every(function(h){return h.days.indexOf(k)>=0}))msg('habit');save();draw()}
+function togPr(n){var k=today(),a=S.prayers[k]||[],i=a.indexOf(n),add=false;if(i>=0)a.splice(i,1);else{a.push(n);add=true}S.prayers[k]=a;fx='fx-p'+PR.indexOf(n);if(add&&a.length===5)msg('prayer');save();draw()}
+function pick(m){if(tm.run)return;tm.total=tm.left=m*60;draw()}
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+function tick(){tm.left=Math.max(0,Math.round((tm.end-Date.now())/1000));var e=document.getElementById('tt');if(e)e.textContent=fmt(tm.left);if(tm.left<=0)finish(true)}
+function start(){tm.subj=val('subj')||tm.subj;tm.end=Date.now()+tm.left*1000;tm.run=true;tm.id=setInterval(tick,500);draw()}
+function pause(){clearInterval(tm.id);tm.run=false;tick();draw()}
+function finish(done){clearInterval(tm.id);tm.run=false;var m=Math.round((tm.total-tm.left)/60);if(done)m=Math.round(tm.total/60);if(m>0){S.sessions.push({date:today(),subj:tm.subj||'عام',min:m});save();msg('study',m)}tm.left=tm.total;if(done&&navigator.vibrate)try{navigator.vibrate([300,150,300])}catch(e){}draw()}
+function ring(p){var c=2*Math.PI*62,o=c*(1-p/100);return '<div class="ring"><svg width="150" height="150"><circle cx="75" cy="75" r="62" fill="none" stroke="#DCEFEB" stroke-width="14"/><circle cx="75" cy="75" r="62" fill="none" stroke="#14917E" stroke-width="14" stroke-linecap="round" stroke-dasharray="'+c+'" stroke-dashoffset="'+o+'"/></svg><b>'+p+'%<small>عادات النهارده</small></b></div>'}
+function home(){
+var k=today(),n=S.habits.length,d=S.habits.filter(function(h){return h.days.indexOf(k)>=0}).length,p=n?Math.round(d/n*100):0;
+var gAvg=S.goals.length?Math.round(S.goals.reduce(function(a,g){return a+gp(g)},0)/S.goals.length):0;
+var names=['أحد','اثنين','ثلاثاء','أربعاء','خميس','جمعة','سبت'],w=[],mx=1,i;
+for(i=6;i>=0;i--){var dt=new Date();dt.setDate(dt.getDate()-i);var m=mins(key(dt));mx=Math.max(mx,m);w.push([names[dt.getDay()],m])}
+var h='<div class="hero"><small>'+dateStr()+'</small><b>'+greet()+'</b></div><div class="card">'+(n?ring(p):'<div class="empty">ضيف أول عادة من قسم العادات.</div>')+'</div>';
+h+='<div class="stats"><div class="card"><b>'+pDone(k)+'/5</b><span>صلوات النهارده</span></div><div class="card"><b>'+mins(k)+'</b><span>دقايق مذاكرة</span></div><div class="card"><b>'+gAvg+'%</b><span>تقدم الأهداف</span></div></div>';
+h+='<h2>مذاكرتك آخر 7 أيام</h2><div class="card"><div class="bars">'+w.map(function(x){return '<div><i style="height:'+Math.round(x[1]/mx*70)+'px"></i>'+x[0]+'</div>'}).join('')+'</div></div>';
+return h}
+var QT=['الاستمرار على القليل أحسن من الانقطاع عن الكتير.','كل يوم بتذاكر فيه بيقرّبك من حلمك خطوة.','النجاح مجموع مجهودات صغيرة بتتكرر كل يوم.','ابدأ دلوقتي، الكمال بييجي بعد البداية.','تعبك النهارده هو راحتك بكرة.','الانضباط أهم من الحماس.','إنت أقدر مما بتتخيل، بس لازم تبدأ.'];
+function dateStr(){try{return new Date().toLocaleDateString('ar-EG',{weekday:'long',day:'numeric',month:'long'})}catch(e){return ''}}
+function greet(){var h=new Date().getHours();return h<12?'صباح الخير، يلا نبدأ يومنا':h<18?'مساء النور، كمّل بنفس الحماس':'مساء الخير، راجع إنجازك قبل ما تنام'}
+function homeExtra(){var k=today(),a=S.prayers[k]||[],h='<h2>صلواتك النهارده</h2><div class="card"><div class="dots">'+PR.map(function(n,ix){var on=a.indexOf(n)>=0;return '<button class="dot'+(on?' on':'')+'" id="fx-p'+ix+'" onclick="togPr(PR['+ix+'])"><i>'+(on?'✓':'')+'</i>'+n+'</button>'}).join('')+'</div></div>';
+h+='<h2>مهام النهارده</h2>';
+if(!S.habits.length)h+='<div class="card empty">ضيف عادات يومية وهتظهر هنا.<br><button class="g" style="margin-top:10px" onclick="go(TABS[3][0])">إضافة عادة</button></div>';
+else{var od=S.habits.filter(function(x){return x.days.indexOf(k)<0}).slice(0,4);if(!od.length)h+='<div class="card empty">خلّصت كل عاداتك النهارده 🎉</div>';od.forEach(function(x){h+='<div class="card row" id="fx-h'+x.id+'"><button class="chk" onclick="togHabit('+x.id+')"></button><b class="sp">'+esc(x.t)+'</b></div>'})}
+var g=S.goals.filter(function(x){return x.steps.length&&gp(x)<100})[0];
+if(g)h+='<h2>هدف شغال عليه</h2><div class="card"><div class="row"><b class="sp">'+esc(g.t)+'</b><span class="tag">'+gp(g)+'%</span></div><div class="bar"><i style="width:'+gp(g)+'%"></i></div></div>';
+return h+'<div class="quote"><span>“</span>'+QT[qi()]+'</div>'}
+var SG=[{e:'📖',t:'قراءة 20 دقيقة',w:'بتوسّع معلوماتك وبتهدّي دماغك.',s:['اختار كتاب صغير يهمك','حدد وقت ثابت، مثلاً قبل النوم','ابدأ بـ 5 صفحات بس','زوّد صفحة كل أسبوع']},{e:'🌅',t:'صحيان بدري',w:'ساعة هادية قبل الزحمة بتفرق في يومك.',s:['نام قبل معادك الحالي بربع ساعة','ظبط المنبه بعيد عن السرير','قوم وافتح الشباك واغسل وشك','ابدأ بأهم مهمة في يومك']},{e:'💧',t:'شرب مياه كفاية',w:'تركيز أحسن وطاقة أعلى.',s:['حط زجاجة مياه جنبك','اشرب كوباية أول ما تصحى','اشرب كوباية مع كل وجبة','اعمل تذكير كل ساعتين']},{e:'🏃',t:'رياضة 15 دقيقة',w:'جسم نشيط وعقل أصفى.',s:['اختار حاجة بتحبها زي المشي أو التمارين','ابدأ بـ 5 دقايق بس','حدد يومين في الأسبوع في الأول','زوّد الوقت بالتدريج']},{e:'📝',t:'مراجعة اليوم قبل النوم',w:'بتعرف إنت وصلت فين وتتعلم من يومك.',s:['اكتب 3 حاجات عملتها النهارده','اكتب حاجة واحدة تتحسن فيها بكرة','حدد أول مهمة لبكرة']},{e:'📵',t:'ساعة بدون موبايل',w:'تركيز أعمق ووقت أطول لنفسك.',s:['اختار ساعة ثابتة في اليوم','حط الموبايل في أوضة تانية','اقضيها في مذاكرة أو قراءة','كافئ نفسك بعدها']},{e:'🔤',t:'5 كلمات إنجليزي جديدة',w:'لغتك بتتحسن وبتفهم مصطلحات مجالك أسرع.',s:['اختار 5 كلمات من مادتك','اكتب معناها وجملة بيها','راجعها آخر اليوم','راجع كلمات الأسبوع كله يوم الجمعة']},{e:'📿',t:'أذكار الصباح والمساء',w:'بداية ونهاية يوم مليانة سكينة.',s:['ابدأ بأذكار الصباح بعد الفجر','اقرأ أذكار المساء بعد العصر','خلّي الأذكار في تطبيق أو كتيب صغير معاك']},{e:'😴',t:'نوم 7 ساعات',w:'من غير نوم كفاية، المذاكرة بتضيع.',s:['حدد ميعاد نوم ثابت','قفّل الشاشات قبل النوم بنص ساعة','خلّي الأوضة هادية ومظلمة']}],sgo=-1,ho=0;
+function togSg(i){sgo=sgo===i?-1:i;draw()}
+function togHs(id){ho=ho===id?0:id;draw()}
+function addSug(i){var g=SG[i],id=Date.now();S.habits.push({id:id,t:g.e+' '+g.t,days:[],steps:g.s});sgo=-1;fx='fx-h'+id;save();draw()}
+function ol(a){return '<ol class="st">'+a.map(function(s){return '<li>'+esc(s)+'</li>'}).join('')+'</ol>'}
+function stepsBox(x){if(!x.steps)return '';return '<div><button class="g mini" onclick="togHs('+x.id+')">'+(ho===x.id?'إخفاء الخطوات':'الخطوات')+'</button></div>'+(ho===x.id?ol(x.steps):'')}
+function sugs(){var h='<h2>اقتراحات تلهمك</h2><p class="sub">اختار عادة وهتلاقي معاها خطوات تمشي عليها.</p>';
+SG.forEach(function(g,i){var t=g.e+' '+g.t,added=S.habits.some(function(x){return x.t===t}),op=sgo===i;
+h+='<div class="card"><div class="row"><span class="em2">'+g.e+'</span><div class="sp"><b>'+g.t+'</b><div class="sub" style="margin:0">'+g.w+'</div></div></div>'+(op?ol(g.s):'')+'<div class="row" style="margin-top:10px"><button class="g" onclick="togSg('+i+')">'+(op?'إخفاء الخطوات':'عرض الخطوات')+'</button>'+(added?'<button class="g" disabled>✓ مضافة</button>':'<button onclick="addSug('+i+')">أضف لعاداتي</button>')+'</div></div>'});
+return h}
+QT=QT.concat(['التقدم البطيء أحسن من الوقوف في مكانك.','اللي بيبدأ النهارده بيسبق اللي بيستنى بكرة.','ماتقارنش بدايتك بنهايات غيرك.','عادة صغيرة كل يوم بتصنع فرق كبير بعد سنة.','التعب مؤقت، والإنجاز بيفضل.','ركّز على الخطوة اللي قدامك مش على الجبل كله.','الفشل مجرد محاولة محتاجة تعديل.','خلّي هدفك أكبر من أعذارك.']);
+TABS.push(['streak','🔥','الاستمرارية']);
+function qi(){return Math.floor(Date.now()/6e5)%QT.length}
+setInterval(function(){var q=document.querySelector('.quote');if(q&&q.lastChild&&q.lastChild.nodeType===3&&q.lastChild.textContent!==QT[qi()])q.lastChild.textContent=QT[qi()]},30000);
+function mark(){if(!S.act)S.act={};S.act[today()]=1}
+var GS=[{e:'📚',t:'أخلّص كتاب',p:'شهر',w:'كتاب كامل في شهر بدل ما يفضل على الرف.',s:['اختار الكتاب وقسّم صفحاته على 30 يوم','الأسبوع 1: خلّص الربع الأول','الأسبوع 2: خلّص النص','الأسبوع 3: خلّص تلات أرباع','الأسبوع 4: خلّص الكتاب ولخّص أهم أفكاره']},{e:'🧪',t:'أراجع منهج مادة كاملة',p:'شهر',w:'مراجعة على مهل أحسن من سهر قبل الامتحان.',s:['اجمع المحاضرات والملخصات في مكان واحد','الأسبوع 1: راجع أول ثلث المنهج','الأسبوع 2: راجع التلت التاني','الأسبوع 3: راجع التلت الأخير','الأسبوع 4: حل أسئلة وامتحانات سابقة']},{e:'🔤',t:'أحفظ 100 كلمة إنجليزي',p:'شهر',w:'3 أو 4 كلمات يوميًا وتخلّص الشهر وإنت متمكن.',s:['اعمل قايمة 100 كلمة من مجالك','الأسبوع 1: 25 كلمة مع جملة لكل كلمة','الأسبوع 2: 25 كلمة وراجع اللي فاتت','الأسبوع 3: 25 كلمة وراجع','الأسبوع 4: آخر 25 كلمة واختبر نفسك في الـ 100']},{e:'🏃',t:'أبني عادة رياضة',p:'شهر',w:'شهر واحد كفاية تثبّت العادة.',s:['الأسبوع 1: 3 مرات، 10 دقايق في كل مرة','الأسبوع 2: 3 مرات، 20 دقيقة','الأسبوع 3: 4 مرات في الأسبوع','الأسبوع 4: كمّل وقارن حالتك بأول الشهر']},{e:'📿',t:'أحفظ سورة أو جزء',p:'شهر',w:'آيات قليلة كل يوم بتوصلك للحفظ.',s:['اختار السورة أو الجزء وقسّمه على أيام الشهر','احفظ كام آية يوميًا بعد الفجر','راجع المحفوظ كله كل أسبوع','سمّع الحفظ لحد في آخر الشهر']},{e:'🗂️',t:'أنظّم أسبوع مذاكرة',p:'أسبوع',w:'تجربة سريعة تعرّفك الشغل المناسب ليك.',s:['اكتب مواد الأسبوع ومحاضراتها','وزّعها على الأيام بمواعيد ثابتة','ذاكر بالمؤقت وسجّل وقتك','راجع آخر الأسبوع اللي خلص واللي اتأجل']},{l:1,e:'🎓',t:'أحقق تقدير عالي في السنة',p:'سنة',w:'المذاكرة أول بأول هي الفرق.',s:['حدد المعدل اللي عايزه في أول السنة','كل شهر: ذاكر أول بأول وماتأجلش','كل شهر: راجع اللي ذاكرته','قبل كل ترم: اعمل خطة مراجعة','بعد النتيجة: قيّم نفسك وعدّل خطتك']},{l:1,e:'🗣️',t:'أتقن الإنجليزي',p:'سنة',w:'لغتك أقوى في مجالك ودراستك.',s:['الشهور 1-3: 5 كلمات يوميًا وقواعد أساسية','الشهور 4-6: محتوى بالإنجليزي كل يوم، فيديو أو مقال','الشهور 7-9: اكتب فقرة قصيرة واتكلم مع حد','الشهور 10-12: اختبر مستواك وحدد اللي ناقصك']},{l:1,e:'💻',t:'أتعلم مهارة جديدة',p:'سنة',w:'سنة كفاية تبقى شاطر في مهارة.',s:['اختار المهارة ومصدر تتعلم منه','الشهور 1-3: الأساسيات خطوة خطوة','الشهور 4-8: مشاريع صغيرة تطبّق بيها','الشهور 9-12: مشروع كبير تعرضه لحد']},{l:1,e:'📖',t:'أقرأ 12 كتاب',p:'سنة',w:'كتاب كل شهر، والتقدم بيتراكم.',s:['اعمل قايمة 12 كتاب في أول السنة','كتاب كل شهر، وحدد صفحات يومية','لخّص كل كتاب في 5 أسطر','في آخر السنة اختار أحسن 3 كتب']},{l:1,e:'💪',t:'لياقة وصحة السنة',p:'سنة',w:'جسمك أساس كل حاجة تانية.',s:['الشهور 1-3: ثبّت 3 تمارين في الأسبوع','الشهور 4-6: زوّد المدة أو الصعوبة','الشهور 7-9: نظّم نومك وأكلك','الشهور 10-12: قارن حالتك بأول السنة']}],gso=-1;
+function togGs(i){gso=gso===i?-1:i;draw()}
+function addGs(i){var g=GS[i];S.goals.push({id:Date.now(),t:g.e+' '+g.t,type:g.l?'l':'s',per:g.p,steps:g.s.map(function(x){return {t:x,d:false}})});gt=g.l?'l':'s';gso=-1;save();draw()}
+function gsugs(){var h='<h2>اقتراحات تلهمك</h2><p class="sub">'+(gt==='l'?'أهداف السنة محتاجة صبر، وزّع خطواتها على شهورها.':'أهداف الشهر محتاجة التزام، خلّي لكل أسبوع شغله.')+'</p>';
+GS.forEach(function(g,i){if(!g.l!==(gt!=='l'))return;var t=g.e+' '+g.t,added=S.goals.some(function(x){return x.t===t}),op=gso===i;
+h+='<div class="card"><div class="row"><span class="em2">'+g.e+'</span><div class="sp"><b>'+g.t+'</b><div class="sub" style="margin:0">'+g.w+'</div></div><span class="tag">'+g.p+'</span></div>'+(op?ol(g.s):'')+'<div class="row" style="margin-top:10px"><button class="g" onclick="togGs('+i+')">'+(op?'إخفاء الخطوات':'عرض الخطوات')+'</button>'+(added?'<button class="g" disabled>✓ مضافة</button>':'<button onclick="addGs('+i+')">أضف لأهدافي</button>')+'</div></div>'});
+return h}
+function dayNum(k){var p=k.split('-');return Math.round(Date.UTC(+p[0],+p[1]-1,+p[2])/864e5)}
+function actSet(){var o={};Object.keys(S.act||{}).forEach(function(k){o[k]=1});S.sessions.forEach(function(s){o[s.date]=1});Object.keys(S.prayers).forEach(function(k){if((S.prayers[k]||[]).length)o[k]=1});S.habits.forEach(function(h){h.days.forEach(function(d){o[d]=1})});return o}
+function streakView(){var A=actSet(),N={},ks=Object.keys(A);ks.forEach(function(k){N[dayNum(k)]=1});
+var t=dayNum(today()),c=0,j=N[t]?0:1;while(N[t-j]){c++;j++}
+var u=Object.keys(N).map(Number).sort(function(a,b){return a-b}),best=0,run=0;u.forEach(function(n,x){run=x&&u[x-1]===n-1?run+1:1;if(run>best)best=run});
+var mo=today().slice(0,7),mc=ks.filter(function(k){return k.slice(0,7)===mo}).length;
+var d=new Date(),y=d.getFullYear(),m=d.getMonth(),first=(new Date(y,m,1).getDay()+1)%7,dim=new Date(y,m+1,0).getDate(),i,mt='';
+try{mt=d.toLocaleDateString('ar-EG',{month:'long',year:'numeric'})}catch(e){}
+var h='<div class="hero" style="text-align:center"><small>'+(A[today()]?'سجّلت نشاطك النهارده ✓':'لسه ماسجلتش نشاط النهارده')+'</small><div class="big">🔥 '+c+'</div><b>يوم ورا بعض</b></div>';
+h+='<div class="stats"><div class="card"><b>'+ks.length+'</b><span>إجمالي الأيام</span></div><div class="card"><b>'+best+'</b><span>أطول التزام</span></div><div class="card"><b>'+mc+'</b><span>أيام الشهر</span></div></div>';
+h+='<h2>'+mt+'</h2><div class="card"><div class="cal">'+['س','ح','ن','ث','ر','خ','ج'].map(function(x){return '<span class="h">'+x+'</span>'}).join('');
+for(i=0;i<first;i++)h+='<span></span>';
+for(i=1;i<=dim;i++){var k=y+'-'+String(m+1).padStart(2,'0')+'-'+String(i).padStart(2,'0');h+='<span class="'+(A[k]?'on':'')+(k===today()?' td':'')+'">'+i+'</span>'}
+return h+'</div></div><p class="sub">بتتسجل تلقائي: أي مذاكرة، صلاة، عادة، خطوة هدف، أو محاضرة بتعملها.</p>'}
+var cloud={ref:null,t:0};
+function cloudSave(){if(!cloud.ref)return;clearTimeout(cloud.t);cloud.t=setTimeout(function(){try{cloud.ref.set({json:JSON.stringify(S)}).catch(function(){})}catch(e){}},800)}
+function cloudHtml(){return '<div class="cst">\ud83d\udcbe \u0628\u064a\u0627\u0646\u0627\u062a\u0643 \u0639\u0644\u0649 \u0627\u0644\u062c\u0647\u0627\u0632<div class="row" style="margin-top:8px"><button class="g mini" onclick="bkExport()">\u0646\u0633\u062e\u0629 \u0627\u062d\u062a\u064a\u0627\u0637\u064a\u0629</button><button class="g mini" onclick="document.getElementById(\'bkf\').click()">\u0627\u0633\u062a\u0631\u062c\u0627\u0639</button></div><input type="file" id="bkf" accept=".json,application/json" style="display:none" onchange="bkImport(this)"></div>'}
+function bkExport(){var b=new Blob([JSON.stringify(S)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='nafsi-backup-'+today()+'.json';document.body.appendChild(a);a.click();a.remove()}
+function bkImport(inp){var f=inp.files[0];if(!f)return;if(!confirm('\u0647\u062a\u0633\u062a\u0628\u062f\u0644 \u0628\u064a\u0627\u0646\u0627\u062a\u0643 \u0627\u0644\u062d\u0627\u0644\u064a\u0629 \u0628\u0627\u0644\u0646\u0633\u062e\u0629 \u062f\u064a. \u0645\u062a\u0623\u0643\u062f\u061f')){inp.value='';return}var r=new FileReader();r.onload=function(){try{var o=JSON.parse(r.result);if(!o||typeof o!=='object')throw 0;S={goals:[],habits:[],sessions:[],prayers:{}};for(var q in o)S[q]=o[q];save();menu(false);draw()}catch(e){alert('\u0627\u0644\u0645\u0644\u0641 \u0645\u0634 \u0635\u0627\u0644\u062d')}};r.readAsText(f)}
+function cloudInit(){if(!window.claude||!claude.use)return;
+Promise.all([claude.use('db'),claude.use('user')]).then(function(r){var db=r[0],u=r[1];if(!db||!u)return;
+return u.id().then(function(id){if(!id)return;var ref=db.collection('data/users/'+id).doc('state');
+return ref.get().then(function(s){var d=s.exists&&s.data();
+if(d&&d.json){try{localStorage.setItem('nafsi_bak',JSON.stringify(S))}catch(e){}var o=JSON.parse(d.json);S={goals:[],habits:[],sessions:[],prayers:{}};for(var q in o)S[q]=o[q];try{localStorage.setItem('nafsi',JSON.stringify(S))}catch(e){}cloud.ref=ref}
+else{cloud.ref=ref;cloudSave()}
+draw()})})}).catch(function(){})}
+cloudInit();
+function prayer(){
+var k=today(),a=S.prayers[k]||[],s=pStreak();
+var h='<p class="sub">علّم على كل صلاة بعد ما تصليها.</p><div class="card"><div class="row"><b class="sp" style="font-size:18px">النهارده: '+a.length+' من 5</b>'+(s?'<span class="fire">🔥 '+s+' يوم كاملين</span>':'')+'</div><div class="bar"><i style="width:'+a.length*20+'%"></i></div></div>';
+PR.forEach(function(n,ix){var on=a.indexOf(n)>=0;h+='<div class="card row" id="fx-p'+ix+'"><button class="chk'+(on?' on':'')+'" onclick="togPr(\''+n+'\')">'+(on?'✓':'')+'</button><b class="sp" style="font-size:18px">'+n+'</b></div>'});
+return h}
+function goals(){
+var h='<div class="seg"><button class="'+(gt==='s'?'on':'')+'" onclick="setG(\'s\')">قصيرة (أسبوع – شهر)</button><button class="'+(gt==='l'?'on':'')+'" onclick="setG(\'l\')">طويلة (سنة)</button></div>';
+h+='<div class="add"><input id="gi" placeholder="'+(gt==='l'?'هدفك للسنة، مثلاً: أحفظ جزء من القرآن':'اكتب هدف، مثلاً: أخلّص كتاب')+'">'+(gt==='s'?'<select id="gper"><option>أسبوع</option><option>شهر</option></select>':'')+'<button onclick="addGoal()">إضافة</button></div>';
+var L=S.goals.filter(function(g){return (g.type||'s')===gt});
+if(!L.length)h+='<div class="empty">لسه مفيش أهداف هنا. اكتب أول هدف فوق.</div>';
+L.forEach(function(g){var p=gp(g);
+h+='<div class="card"><div class="row"><b class="sp">'+esc(g.t)+'</b><span class="tag">'+esc(g.per||'أسبوع')+'</span><span>'+p+'%</span><button class="x" onclick="delGoal('+g.id+')" aria-label="حذف">✕</button></div><div class="bar"><i style="width:'+p+'%"></i></div>';
+g.steps.forEach(function(s,i){h+='<div class="step'+(s.d?' d':'')+'" id="fx-s'+g.id+'-'+i+'"><button class="chk'+(s.d?' on':'')+'" onclick="togStep('+g.id+','+i+')">'+(s.d?'✓':'')+'</button><span>'+esc(s.t)+'</span></div>'});
+h+='<div class="add" style="margin:8px 0 0"><input id="s'+g.id+'" placeholder="خطوة جديدة"><button class="g" onclick="addStep('+g.id+')">+</button></div></div>'});
+return h}
+function habits(){
+var k=today(),h='<p class="sub">علّم على اللي عملته النهارده.</p><div class="add"><input id="hi" placeholder="مثلاً: قراءة 20 دقيقة"><button onclick="addHabit()">إضافة</button></div>';
+if(!S.habits.length)h+='<div class="empty">لسه مفيش عادات. ضيف أول عادة فوق.</div>';
+S.habits.forEach(function(x){var on=x.days.indexOf(k)>=0,s=streak(x);
+h+='<div class="card row" id="fx-h'+x.id+'"><button class="chk'+(on?' on':'')+'" onclick="togHabit('+x.id+')">'+(on?'✓':'')+'</button><div class="sp"><b>'+esc(x.t)+'</b>'+(s?'<div class="fire">🔥 '+s+' يوم ورا بعض</div>':'')+''+stepsBox(x)+'</div><button class="x" onclick="delHabit('+x.id+')" aria-label="حذف">✕</button></div>'});
+return h}
+var SUBJ=['Analytical chemistry','Organic chemistry','Medicinal plants','Maths','Pharmacy orientation','Terminology','Information technology'],sv=1,os=-1;
+function lecName(i){return i<8?'محاضرة '+(i+1):'محاضرة Extra'}
+function lv(si,li){return (S.lec&&S.lec[si+'-'+li])||0}
+function subMins(n){return S.sessions.filter(function(s){return s.subj===n}).reduce(function(a,s){return a+s.min},0)}
+function fmtT(m){return m>=60?Math.floor(m/60)+' س '+(m%60)+' د':m+' د'}
+function setV(v){sv=v;draw()}
+function openSub(i){os=os===i?-1:i;draw()}
+function togLec(si,li){if(!S.lec)S.lec={};var k=si+'-'+li,v=((S.lec[k]||0)+1)%3;S.lec[k]=v;if(v)mark();fx='fx-l'+si+'-'+li;var all=true;for(var j=0;j<9;j++)if(lv(si,j)!==2)all=false;if(all)msg('sub',SUBJ[si]);save();draw()}
+var sw={on:false,run:false,subj:'',t0:0,acc:0,id:null};
+function swMs(){return sw.acc+(sw.run?Date.now()-sw.t0:0)}
+function fmtH(s){return String(Math.floor(s/3600)).padStart(2,'0')+':'+fmt(s%3600)}
+function swInt(){clearInterval(sw.id);sw.id=setInterval(function(){var e=document.getElementById('sw');if(e)e.textContent=fmtH(Math.floor(swMs()/1000))},500)}
+function swPause(){sw.acc+=Date.now()-sw.t0;sw.run=false;clearInterval(sw.id);draw()}
+function swResume(){sw.t0=Date.now();sw.run=true;swInt();draw()}
+function swEnd(){var m=Math.round(swMs()/60000);clearInterval(sw.id);if(m>0){S.sessions.push({date:today(),subj:sw.subj,min:m});save();msg('study',m)}sw.on=false;sw.run=false;sw.acc=0;draw()}
+function subStudy(si){if(tm.run)finish(false);if(sw.on&&sw.subj!==SUBJ[si])swEnd();if(!sw.on){sw.on=true;sw.run=true;sw.subj=SUBJ[si];sw.t0=Date.now();sw.acc=0;swInt()}draw();window.scrollTo(0,0)}
+function pharm(){
+var h='<p class="sub">اضغط على المحاضرة مرة = خلصت نصها، مرتين = خلصتها كلها، تلات مرات = تمسحها.</p>';
+if(tm.run)h+='<div class="card row"><span class="sp">⏱️ بتذاكر '+esc(tm.subj)+'</span><b id="tt">'+fmt(tm.left)+'</b><button class="g" onclick="setV(0)">فتح</button></div>';
+if(sw.on)h+='<div class="card" style="text-align:center"><b class="en" style="text-align:center">'+sw.subj+'</b><div class="timer" id="sw">'+fmtH(Math.floor(swMs()/1000))+'</div><div class="row" style="justify-content:center">'+(sw.run?'<button onclick="swPause()">إيقاف مؤقت</button>':'<button onclick="swResume()">استمرار</button>')+'<button class="g" onclick="swEnd()">إنهاء وتسجيل</button></div></div>';
+SUBJ.forEach(function(n,si){var tot=0,li;for(li=0;li<9;li++)tot+=lv(si,li);var p=Math.round(tot/18*100),op=os===si;
+h+='<div class="card"><div class="row" onclick="openSub('+si+')" style="cursor:pointer"><div class="sp"><b class="en">'+n+'</b><span class="tag">'+p+'%</span> <span class="tag">⏱️ '+fmtT(subMins(n))+'</span></div><span>'+(op?'▲':'▼')+'</span></div><div class="bar"><i style="width:'+p+'%"></i></div>';
+if(op){h+='<div class="lecs">';for(li=0;li<9;li++){var v=lv(si,li);h+='<button class="lec l'+v+'" id="fx-l'+si+'-'+li+'" onclick="togLec('+si+','+li+')">'+(v===2?'✓ ':v===1?'½ ':'')+lecName(li)+'</button>'}h+='</div>'}
+h+='<button style="width:100%;margin-top:10px" onclick="subStudy('+si+')">ابدأ مذاكرة</button></div>'});
+return h}
+function study(){return '<div class="seg"><button class="'+(sv?'on':'')+'" onclick="setV(1)">💊 الصيدلة</button><button class="'+(sv?'':'on')+'" onclick="setV(0)">⏱️ مؤقت حر</button></div>'+(sv?pharm():timer())}
+function timer(){
+var k=today(),h='<p class="sub">ركّز بدون موبايل، وبعدين خد راحة.</p><div class="card"><input id="subj" placeholder="بتذاكر إيه أو بتتعلم إيه؟" value="'+esc(tm.subj)+'">';
+h+='<div class="timer" id="tt">'+fmt(tm.left)+'</div><div class="pre">'+[30,45,60].map(function(m){return '<button class="g'+(tm.total===m*60?' on':'')+'" onclick="pick('+m+')">'+m+' د</button>'}).join('')+'</div><div class="row" style="justify-content:center">';
+h+=tm.run?'<button onclick="pause()">إيقاف</button>':'<button onclick="start()">ابدأ</button>';
+h+='<button class="g" onclick="finish(false)">إنهاء وتسجيل</button></div></div>';
+var by={};S.sessions.filter(function(s){return s.date===k}).forEach(function(s){by[s.subj]=(by[s.subj]||0)+s.min});
+h+='<h2>النهارده</h2>';var ks=Object.keys(by);
+if(!ks.length)h+='<div class="empty">لسه مسجلتش جلسة النهارده.</div>';
+ks.forEach(function(s){h+='<div class="card row"><b class="sp">'+esc(s)+'</b><span>'+by[s]+' دقيقة</span></div>'});
+return h}
+function draw(){
+var cur=TABS.filter(function(t){return t[0]===tab})[0];
+document.getElementById('ttl').textContent=tab==='home'?'أحسن نسخة':cur[2];
+document.getElementById('app').innerHTML={home:function(){return home()+homeExtra()},prayer:prayer,goals:function(){return goals()+gsugs()},habits:function(){return habits()+sugs()},study:study,streak:streakView}[tab]();
+if(fx){var fe=document.getElementById(fx);if(fe)fe.classList.add('pop');fx=''}
+document.getElementById('dr').innerHTML='<h3>أحسن نسخة 🌱</h3>'+TABS.map(function(t){return '<button class="'+(tab===t[0]?'on':'')+'" onclick="go(\''+t[0]+'\')"><span>'+t[1]+'</span>'+t[2]+'</button>'}).join('');
+document.getElementById('dr').insertAdjacentHTML('beforeend',cloudHtml());
+}
+draw();
+if('serviceWorker' in navigator)window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})});
+</script>
+</body>
+</html>
